@@ -23,10 +23,12 @@ menu:
 social:
   fab fa-github: https://github.com/202367jack || GitHub || '#24292e'
   fas fa-envelope: mailto:wangjie202367@qq.com || Email || '#4a7dbe'
+  aether-gmail: 'mailto:wangjie202367@gmail.com || Gmail || #ea4335'
   fab fa-bilibili: https://space.bilibili.com/3494369350912310 || BiliBili || '#00a1d6'
   fab fa-x-twitter: 'https://x.com/JackWangNomad || X || #1da1f2'
   fab fa-facebook: 'https://www.facebook.com/profile.php?id=61595166796204 || Facebook || #1877f2'
   fab fa-instagram: 'https://www.instagram.com/wangjie20270607/?hl=zh-cn || Instagram || #e4405f'
+  aether-douban: 'https://www.douban.com/people/292163236/?_i=25071534GT36CJ || 豆瓣 || #007722'
 
 # ---------------- 图片 ----------------
 favicon: /img/favicon.png

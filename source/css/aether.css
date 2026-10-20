@@ -571,3 +571,30 @@
     break-inside: avoid;
   }
 }
+
+/* ---------- Gmail / 豆瓣：FontAwesome 没有这两个图标，用官方 SVG ---------- */
+
+.social-icon i.aether-gmail,
+.social-icon i.aether-douban {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: -0.125em;
+  transition: transform 0.2s ease;
+}
+
+.social-icon i.aether-gmail {
+  background-image: url('../img/social-gmail.svg');
+}
+
+.social-icon i.aether-douban {
+  background-image: url('../img/social-douban.svg');
+}
+
+.social-icon:hover i.aether-gmail,
+.social-icon:hover i.aether-douban {
+  transform: scale(1.15);
+}
