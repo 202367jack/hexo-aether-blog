@@ -43,8 +43,8 @@ git push -u origin main
 if errorlevel 1 (
   echo.
   echo [错误] 推送失败。常见原因：
-  echo   1. 仓库 202367jack/hexo-aether-blog 还没建（去 https://github.com/new 建一个 public 空仓库）
-  echo   2. 本机 SSH key 没加到 GitHub 账号
+  echo   1. 本机 SSH key 没加到 GitHub 账号（命令行 ssh -T git@github.com 能测）
+  echo   2. 网络到 github.com 不通
   echo.
   pause
   exit /b 1
@@ -52,6 +52,10 @@ if errorlevel 1 (
 
 echo.
 echo 推送成功。GitHub Actions 大约 1-2 分钟后完成构建。
+echo.
+echo 第一次发布还要多做一步：仓库 Settings -^> Pages -^> Build and deployment，
+echo 把 Source 选成 "GitHub Actions"，否则 Actions 会停在 configure-pages 报 Not Found。
+echo.
 echo 打开看看：https://202367jack.github.io/hexo-aether-blog/
 echo.
 timeout /t 3 >nul

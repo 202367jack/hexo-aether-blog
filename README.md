@@ -72,8 +72,15 @@ source/_posts/
 
 ## 部署
 
-**双击 `发布.bat`**：它会把改动提交、推送到 `main`，GitHub Actions 自动构建并发布到
-<https://202367jack.github.io/hexo-aether-blog/>。
+**第一次发布**（只需要一次）：
+
+1. 仓库 **Settings → Pages → Build and deployment → Source** 选 **GitHub Actions**；
+2. 双击 `发布.bat`。
+
+少了第 1 步，Actions 会停在 `configure-pages` 那一步报 `Not Found`。
+
+之后每次写完，**双击 `发布.bat`**：它提交、推送，GitHub Actions 自动构建并发布到
+<https://202367jack.github.io/hexo-aether-blog/>，大约 1–2 分钟。
 
 想手动来也行：
 
@@ -83,9 +90,7 @@ git commit -m "写点什么"
 git push
 ```
 
-仓库 Settings → Pages → Build and deployment 的 Source 需要选 **GitHub Actions**（只需设置一次）。
-
-生成后想自检站内链接和图片有没有 404：
+推之前想先自检站内链接和图片有没有 404：
 
 ```powershell
 npm run check
