@@ -72,7 +72,10 @@ source/_posts/
 
 ## 部署
 
-推到 `main` 就会触发 GitHub Actions 构建并发布到 GitHub Pages：
+**双击 `发布.bat`**：它会把改动提交、推送到 `main`，GitHub Actions 自动构建并发布到
+<https://202367jack.github.io/aether-weblog-hexo/>。
+
+想手动来也行：
 
 ```powershell
 git add .
@@ -80,7 +83,13 @@ git commit -m "写点什么"
 git push
 ```
 
-仓库 Settings → Pages → Build and deployment 的 Source 需要选 **GitHub Actions**。
+仓库 Settings → Pages → Build and deployment 的 Source 需要选 **GitHub Actions**（只需设置一次）。
+
+生成后想自检站内链接和图片有没有 404：
+
+```powershell
+npm run check
+```
 
 > 站点挂在 `https://202367jack.github.io/aether-weblog-hexo/` 这个子路径下，
 > `_config.yml` 里的 `url` 和 `root` 必须保持带 `/aether-weblog-hexo`，否则 CSS 和图片会 404。

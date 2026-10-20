@@ -65,14 +65,16 @@ source/_posts/
 
 ## 发布
 
+**双击仓库根目录的 `发布.bat`**：它会让我填一句提交说明，然后提交、推送，GitHub Actions
+自动构建并发布到 GitHub Pages，地址是 <https://202367jack.github.io/aether-weblog-hexo/>。
+
+不想用 bat 的话也还是老三行：
+
 ```powershell
 git add .
 git commit -m "写点什么"
 git push
 ```
-
-push 到 `main` 后 GitHub Actions 自动构建并发布到 GitHub Pages，地址是
-<https://202367jack.github.io/aether-weblog-hexo/>。
 
 ## 加影视 / 加项目
 

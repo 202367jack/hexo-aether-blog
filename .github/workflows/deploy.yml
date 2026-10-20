@@ -32,6 +32,10 @@ jobs:
       - name: 生成站点
         run: npm run build
 
+      # 站内链接 / 图片全都得落到实际文件上，否则当场失败
+      - name: 检查站内链接
+        run: npm run check
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
