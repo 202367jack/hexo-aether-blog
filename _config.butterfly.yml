@@ -1,0 +1,211 @@
+# ============================================================
+#  Butterfly 主题配置（_config.butterfly.yml）
+#  只写与主题默认值不同的项；主题用 deepMerge 合并，
+#  没写的键依然沿用 themes 里的默认值。
+# ============================================================
+
+# ---------------- 导航 ----------------
+nav:
+  logo: /img/avatar.jpg
+  display_title: true
+  display_post_title: true
+  fixed: true
+
+menu:
+  随笔: /essays/ || fas fa-pen-nib
+  笔记: /notes/ || fas fa-book-open
+  项目: /projects/ || fas fa-code
+  影视: /media/ || fas fa-film
+  关于: /about/ || fas fa-user
+  简历: /resume/ || fas fa-id-card
+
+# ---------------- 社交 ----------------
+social:
+  fab fa-github: https://github.com/202367jack || GitHub || '#24292e'
+  fas fa-envelope: mailto:wangjie202367@qq.com || Email || '#4a7dbe'
+  fab fa-bilibili: https://space.bilibili.com/3494369350912310 || BiliBili || '#00a1d6'
+
+# ---------------- 图片 ----------------
+favicon: /img/favicon.png
+
+avatar:
+  img: /img/avatar.jpg
+  effect: false
+
+# 列表页不显示封面（本站文章不用封面图）
+cover:
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
+
+# ---------------- 代码块 ----------------
+code_blocks:
+  theme: light
+  macStyle: false
+  height_limit: false
+  copy: true
+  language: true
+  shrink: false
+  fullpage: false
+
+# ---------------- 首页 ----------------
+subtitle:
+  enable: true
+  effect: true
+  source: false
+  sub:
+    - 写代码，也写点别的
+    - Java 后端 · 南昌大学 2023 级
+    - 记录 / 项目 / 影视
+
+index_layout: 3
+index_post_content:
+  method: 2
+  length: 180
+
+# ---------------- 文章页 ----------------
+post_meta:
+  page:
+    date_type: created
+    date_format: date
+    categories: true
+    tags: false
+    label: true
+  post:
+    position: left
+    date_type: created
+    date_format: date
+    categories: true
+    tags: true
+    label: true
+
+toc:
+  post: true
+  page: false
+  number: true
+  expand: false
+  style_simple: false
+  scroll_percent: true
+
+post_copyright:
+  enable: true
+  decode: false
+  author_href: https://github.com/202367jack
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+related_post:
+  enable: true
+  limit: 4
+
+post_pagination: 1
+
+# ---------------- 页脚 ----------------
+footer:
+  owner:
+    enable: true
+    since: 2026
+  copyright:
+    enable: true
+    version: true
+
+# ---------------- 侧栏 ----------------
+aside:
+  enable: true
+  button: true
+  mobile: true
+  position: right
+  card_author:
+    enable: true
+    description: 南昌大学软件工程 2023 级 · Java 后端
+    button:
+      enable: true
+      icon: fab fa-github
+      text: GitHub
+      link: https://github.com/202367jack
+  card_announcement:
+    enable: false
+  card_recent_post:
+    enable: true
+    limit: 5
+    sort: date
+  card_categories:
+    enable: true
+    limit: 8
+    expand: none
+  card_tags:
+    enable: true
+    limit: 30
+    color: false
+    orderby: name
+    order: 1
+  card_archives:
+    enable: true
+    type: monthly
+    format: YYYY年MM月
+    limit: 8
+  card_post_series:
+    enable: false
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+
+# ---------------- 暗色模式 ----------------
+darkmode:
+  enable: true
+  button: true
+  # 跟随系统；系统不支持时 18:00–06:00 自动进入暗色
+  autoChangeMode: 1
+
+display_mode: light
+
+# ---------------- 图片查看 ----------------
+lightbox: fancybox
+
+# ---------------- 站内搜索 ----------------
+search:
+  use: local_search
+  placeholder: 搜索文章…
+  local_search:
+    preload: true
+    top_n_per_article: 2
+    unescape: false
+    pagination:
+      enable: false
+
+# ---------------- 评论：不要 ----------------
+comments:
+  use:
+  text: false
+  lazyload: false
+  count: false
+  card_post_count: false
+
+# ---------------- 访问量统计：不要 ----------------
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+
+# ---------------- 分享 / 字数：不要 ----------------
+share:
+  use:
+
+wordcount:
+  enable: false
+
+math:
+  use:
+
+# ---------------- 其他 ----------------
+# 不注入任何第三方统计
+baidu_analytics:
+google_analytics:
+cloudflare_analytics:
+microsoft_clarity:
+
+readmode: true
+rightside_scroll_percent: true
+enter_transitions: true
+rounded_corners_ui: true

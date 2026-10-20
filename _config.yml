@@ -1,0 +1,109 @@
+# ============================================================
+#  Hexo 站点配置 —— Aether Weblog
+#  部署地址：https://202367jack.github.io/aether-weblog-hexo/
+#  注意：这是 GitHub Pages 的「项目站点」，挂在子目录下，
+#        所以 url 带子路径、root 必须是 /aether-weblog-hexo/，
+#        否则 CSS / 图片 / 搜索索引全部 404。
+# ============================================================
+
+# ---------------- 站点 ----------------
+title: Aether Weblog
+subtitle: '写代码，也写点别的'
+description: 'Aether 的个人站点：随笔、技术笔记、项目与影视。南昌大学软件工程 2023 级，Java 后端。'
+keywords: 'Java,后端,Spring,DDD,南昌大学,Aether,博客'
+author: Aether
+language: zh-CN
+timezone: Asia/Shanghai
+
+# ---------------- 网址 ----------------
+url: https://202367jack.github.io/aether-weblog-hexo
+root: /aether-weblog-hexo/
+# :title 取的是文件名（slug），所以建议文章文件名用英文短横线命名
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+
+# ---------------- 目录 ----------------
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# ---------------- 写作 ----------------
+new_post_name: :year-:month-:day-:title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+future: true
+updated_option: 'date'
+
+# 一篇文章一个同名目录放图片：source/_posts/foo.md + source/_posts/foo/
+post_asset_folder: true
+marked:
+  # 让 Markdown 里的 ![](图.png) 自动指向该文章的资源目录
+  prependRoot: true
+  postAsset: true
+  lazyload: false
+relative_link: false
+
+# ---------------- 代码高亮 ----------------
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: '  '
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: false
+  line_number: true
+  tab_replace: '  '
+
+# ---------------- 分页 ----------------
+# 首页每页 8 篇；随笔 / 笔记 的分页在 scripts/sections.js 里单独设
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+
+per_page: 8
+pagination_dir: page
+
+# ---------------- 分类 / 标签 ----------------
+default_category: 未分类
+category_map:
+tag_map:
+
+# ---------------- 日期格式 ----------------
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# ---------------- 扩展 ----------------
+include:
+exclude:
+ignore:
+
+# ---------------- 主题 ----------------
+theme: butterfly
+
+# hexo-generator-searchdb：生成站内搜索索引
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# 部署交给 GitHub Actions，这里留空
+deploy:
+  type: ''
