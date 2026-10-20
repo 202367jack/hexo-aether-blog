@@ -176,7 +176,7 @@ function mediaHeader (data) {
 function projectHeader (data) {
   const stack = toArray(data.stack)
   const links = []
-  if (data.repo) links.push(`<a href="${esc(data.repo)}" target="_blank" rel="noopener">仓库</a>`)
+  if (data.repo) links.push(`<a class="pj-repo" href="${esc(data.repo)}" target="_blank" rel="noopener" aria-label="在 GitHub 上查看源码" title="在 GitHub 上查看源码"><i class="fab fa-github"></i></a>`)
   if (data.demo) links.push(`<a href="${esc(data.demo)}" target="_blank" rel="noopener">在线体验</a>`)
 
   return `<div class="pj-detail">

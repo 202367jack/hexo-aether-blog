@@ -8,9 +8,9 @@ toc: false
 
 # Aether
 
-Java 后端开发 · 2027 届 ｜ 江西 · 南昌 ｜ wangjie202367@qq.com ｜ [github.com/202367jack](https://github.com/202367jack)
+Java 后端开发 ｜ 江西 · 南昌 ｜ wangjie202367@qq.com ｜ [github.com/202367jack](https://github.com/202367jack)
 
-南昌大学软件工程 2023 级本科生，GPA 3.59/4.0，专业排名 14/329（前 4.3%）。熟悉 Java 并发、Spring 全家桶与 DDD 分层设计，独立完成过拼团营销交易系统与 Spring AI 的 RAG/MCP 工具服务，能把项目从设计一路做到 Docker 部署。
+熟悉 Java 并发、Spring 全家桶与 DDD 分层设计，独立完成过拼团营销交易系统与 Spring AI 的 RAG/MCP 工具服务，能把项目从设计一路做到 Docker 部署。
 
 ## 专业技能
 
@@ -19,15 +19,6 @@ Java 后端开发 · 2027 届 ｜ 江西 · 南昌 ｜ wangjie202367@qq.com ｜ 
 - **中间件**：RabbitMQ（异步通信、流量削峰）、Redis（分布式缓存、Redisson 分布式锁）
 - **设计**：DDD 领域驱动设计，充血模型、四色建模、依赖倒置
 - **工程化**：Docker 容器化部署、Git、Maven、IDEA
-
-## 教育经历
-
-### 南昌大学（211） ｜ 软件工程 · 本科
-
-**2023.09 – 2027.06**
-
-- GPA 3.59/4.0，专业排名 14/329（前 4.3%）
-- 主修课程：算法分析与设计 96、计算机网络 95、数据结构 94、数据库原理 93、操作系统 85、计算机组成原理 85
 
 ## 项目经历
 

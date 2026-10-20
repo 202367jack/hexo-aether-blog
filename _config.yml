@@ -9,8 +9,8 @@
 # ---------------- 站点 ----------------
 title: Aether Weblog
 subtitle: '写代码，也写点别的'
-description: 'Aether 的个人站点：随笔、技术笔记、项目与影视。南昌大学软件工程 2023 级，Java 后端。'
-keywords: 'Java,后端,Spring,DDD,南昌大学,Aether,博客'
+description: 'Aether 的个人站点：随笔、技术笔记、项目与影视。写 Java 后端，也折腾服务器。'
+keywords: 'Java,后端,Spring,DDD,个人博客,Aether'
 author: Aether
 language: zh-CN
 timezone: Asia/Shanghai

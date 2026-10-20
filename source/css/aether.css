@@ -157,6 +157,27 @@
   color: var(--btn-bg);
 }
 
+/* 项目页的仓库入口：一个 GitHub 圆形按钮 */
+.pj-detail-foot .pj-repo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: #fff;
+  background: var(--btn-bg);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pj-detail-foot .pj-repo:hover {
+  transform: translateY(-2px);
+  background: var(--btn-hover-color);
+  color: #fff;
+}
+
 /* ---------- 影视筛选 + 卡片墙 ---------- */
 
 .mv-filters {

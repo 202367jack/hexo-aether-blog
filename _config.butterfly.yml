@@ -24,6 +24,9 @@ social:
   fab fa-github: https://github.com/202367jack || GitHub || '#24292e'
   fas fa-envelope: mailto:wangjie202367@qq.com || Email || '#4a7dbe'
   fab fa-bilibili: https://space.bilibili.com/3494369350912310 || BiliBili || '#00a1d6'
+  fab fa-x-twitter: 'https://x.com/JackWangNomad || X || #1da1f2'
+  fab fa-facebook: 'https://www.facebook.com/profile.php?id=61595166796204 || Facebook || #1877f2'
+  fab fa-instagram: 'https://www.instagram.com/wangjie20270607/?hl=zh-cn || Instagram || #e4405f'
 
 # ---------------- 图片 ----------------
 favicon: /img/favicon.png
@@ -55,7 +58,7 @@ subtitle:
   source: false
   sub:
     - 写代码，也写点别的
-    - Java 后端 · 南昌大学 2023 级
+    - Java 后端 · 分布式 · 自建环境
     - 记录 / 项目 / 影视
 
 index_layout: 3
@@ -117,7 +120,7 @@ aside:
   position: right
   card_author:
     enable: true
-    description: 南昌大学软件工程 2023 级 · Java 后端
+    description: Java 后端 · 自建服务器与自动化
     button:
       enable: true
       icon: fab fa-github
