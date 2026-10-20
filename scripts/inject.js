@@ -4,7 +4,7 @@
  * 把站点自己的 CSS / JS 注入到每个页面。
  *
  * 为什么不用 _config.butterfly.yml 的 inject？
- * 因为站点挂在 GitHub Pages 的子目录 /aether-weblog-hexo/ 下，
+ * 因为站点挂在 GitHub Pages 的子目录 /hexo-aether-blog/ 下，
  * 直接写 /css/aether.css 会 404，这里用 hexo.config.root 拼出正确路径。
  */
 

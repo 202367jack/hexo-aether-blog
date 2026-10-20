@@ -7,7 +7,7 @@ top_img: false
 order: 1
 summary: 这个博客本身：内容全在 Git，一条 push 完成发布。
 stack: [Hexo, Butterfly, GitHub Actions, GitHub Pages]
-repo: https://github.com/202367jack/aether-weblog-hexo
+repo: https://github.com/202367jack/hexo-aether-blog
 status: 进行中
 ---
 

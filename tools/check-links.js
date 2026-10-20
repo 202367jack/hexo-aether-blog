@@ -7,7 +7,7 @@
  *   npm run check
  *
  * 检查 href / src（a、link、script、img 等），外面站的链接、锚点、mailto 直接跳过。
- * 子目录部署（/aether-weblog-hexo/）也会先按 root 前缀剥掉再找文件。
+ * 子目录部署（/hexo-aether-blog/）也会先按 root 前缀剥掉再找文件。
  */
 
 const fs = require('fs')

@@ -3,13 +3,13 @@
 Aether 的个人博客：随笔、技术笔记、项目与影视。
 Hexo + Butterfly，静态托管在 GitHub Pages。
 
-- 线上地址：<https://202367jack.github.io/aether-weblog-hexo/>
-- 仓库：<https://github.com/202367jack/aether-weblog-hexo>
+- 线上地址：<https://202367jack.github.io/hexo-aether-blog/>
+- 仓库：<https://github.com/202367jack/hexo-aether-blog>
 
 ## 本地预览
 
 **双击 `预览.bat`** 就行：第一次会自动装依赖，然后生成站点、起本地服务器并打开浏览器
-（<http://localhost:4000/aether-weblog-hexo/>）。改文章保存后浏览器自动刷新，关掉黑窗口就停。
+（<http://localhost:4000/hexo-aether-blog/>）。改文章保存后浏览器自动刷新，关掉黑窗口就停。
 
 不想用 bat 的话：
 
@@ -73,7 +73,7 @@ source/_posts/
 ## 部署
 
 **双击 `发布.bat`**：它会把改动提交、推送到 `main`，GitHub Actions 自动构建并发布到
-<https://202367jack.github.io/aether-weblog-hexo/>。
+<https://202367jack.github.io/hexo-aether-blog/>。
 
 想手动来也行：
 
@@ -91,5 +91,5 @@ git push
 npm run check
 ```
 
-> 站点挂在 `https://202367jack.github.io/aether-weblog-hexo/` 这个子路径下，
-> `_config.yml` 里的 `url` 和 `root` 必须保持带 `/aether-weblog-hexo`，否则 CSS 和图片会 404。
+> 站点挂在 `https://202367jack.github.io/hexo-aether-blog/` 这个子路径下，
+> `_config.yml` 里的 `url` 和 `root` 必须保持带 `/hexo-aether-blog`，否则 CSS 和图片会 404。

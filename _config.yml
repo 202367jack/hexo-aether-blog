@@ -1,8 +1,8 @@
 # ============================================================
 #  Hexo 站点配置 —— Aether Weblog
-#  部署地址：https://202367jack.github.io/aether-weblog-hexo/
+#  部署地址：https://202367jack.github.io/hexo-aether-blog/
 #  注意：这是 GitHub Pages 的「项目站点」，挂在子目录下，
-#        所以 url 带子路径、root 必须是 /aether-weblog-hexo/，
+#        所以 url 带子路径、root 必须是 /hexo-aether-blog/，
 #        否则 CSS / 图片 / 搜索索引全部 404。
 # ============================================================
 
@@ -16,8 +16,8 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # ---------------- 网址 ----------------
-url: https://202367jack.github.io/aether-weblog-hexo
-root: /aether-weblog-hexo/
+url: https://202367jack.github.io/hexo-aether-blog
+root: /hexo-aether-blog/
 # :title 取的是文件名（slug），所以建议文章文件名用英文短横线命名
 permalink: :year/:month/:day/:title/
 permalink_defaults:

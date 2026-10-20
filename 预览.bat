@@ -29,12 +29,12 @@ if not exist "node_modules" (
 )
 
 echo.
-echo 正在启动本地服务器，浏览器会自动打开 http://localhost:4000/aether-weblog-hexo/
+echo 正在启动本地服务器，浏览器会自动打开 http://localhost:4000/hexo-aether-blog/
 echo 关掉这个窗口 = 停止预览。
 echo.
 
 rem 等 6 秒再开浏览器，避免服务器还没起来
-start "" cmd /c "timeout /t 6 >nul & start http://localhost:4000/aether-weblog-hexo/"
+start "" cmd /c "timeout /t 6 >nul & start http://localhost:4000/hexo-aether-blog/"
 
 call npm run server
 pause
