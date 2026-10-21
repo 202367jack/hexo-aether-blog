@@ -233,4 +233,17 @@
       article.parentNode.insertBefore(row, article.nextSibling)
     }
   }
+  /* ---------- 关于页：热力图还没生成时给个提示 ---------- */
+
+  var snake = document.querySelector('.snake-wrap')
+  if (snake) {
+    var images = snake.querySelectorAll('img')
+    Array.prototype.forEach.call(images, function (img) {
+      var markMissing = function () {
+        if (img.naturalWidth === 0) snake.classList.add('snake-missing')
+      }
+      if (img.complete) markMissing()
+      else img.addEventListener('error', markMissing)
+    })
+  }
 })()

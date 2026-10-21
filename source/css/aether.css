@@ -949,3 +949,21 @@
 [data-theme='dark'] .snake-light {
   display: none;
 }
+
+.snake-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+}
+
+.snake-missing img {
+  display: none !important;
+}
+
+.snake-missing::after {
+  content: '热力图会在 GitHub Actions 第一次跑完后出现，之后每天凌晨自动更新。';
+  color: var(--ae-muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
