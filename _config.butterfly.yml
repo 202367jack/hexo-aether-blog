@@ -165,6 +165,13 @@ darkmode:
 
 display_mode: light
 
+# 把日夜切换放到右下角常驻按钮组（默认藏在齿轮后面，容易找不到）
+rightside_item_order:
+  enable: true
+  hide: readmode,translate,hideAside
+  show: darkmode
+  
+
 # ---------------- 图片查看 ----------------
 lightbox: fancybox
 

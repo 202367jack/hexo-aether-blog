@@ -6,6 +6,45 @@
 :root {
   --ae-gap: 20px;
   --ae-radius: 14px;
+  /* 次要文字：主题的 --light-grey 是浅灰背景色（日间 #eee），当文字用会看不清，这里单独定义 */
+  --ae-muted: #6b6663;
+}
+
+[data-theme='dark'] {
+  --ae-muted: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------- 导航栏日夜切换按钮（aether.js 注入） ---------- */
+
+#ae-darkmode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  padding: 0 8px;
+  color: var(--font-color);
+  opacity: 0.7;
+  font-size: 0.95rem;
+  line-height: 2;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+
+#ae-darkmode:hover {
+  opacity: 1;
+  transform: rotate(-20deg);
+}
+
+#ae-darkmode:focus-visible {
+  outline: 2px solid var(--btn-bg);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  #ae-darkmode {
+    display: none;
+  }
 }
 
 /* ---------- 板块标题（随笔 / 笔记列表页顶部） ---------- */
@@ -25,7 +64,7 @@
 .section-intro p {
   margin: 0;
   font-size: 0.94rem;
-  color: var(--light-grey);
+  color: var(--ae-muted);
 }
 
 /* ---------- 空状态 ---------- */
@@ -33,7 +72,7 @@
 .empty-hint {
   padding: 40px 0;
   text-align: center;
-  color: var(--light-grey);
+  color: var(--ae-muted);
 }
 
 /* ---------- 项目卡片墙 ---------- */
@@ -92,7 +131,7 @@
   margin: 0 0 12px;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--light-grey);
+  color: var(--ae-muted);
   flex: 1;
 }
 
@@ -204,7 +243,7 @@
   width: 3em;
   padding-top: 3px;
   font-size: 0.84rem;
-  color: var(--light-grey);
+  color: var(--ae-muted);
 }
 
 .mv-filter-btns {
@@ -291,7 +330,7 @@
   padding: 12px;
   text-align: center;
   font-size: 0.95rem;
-  color: var(--light-grey);
+  color: var(--ae-muted);
 }
 
 .mv-score {
@@ -321,7 +360,7 @@
   margin: 0 0 8px;
   font-size: 0.82rem;
   line-height: 1.65;
-  color: var(--light-grey);
+  color: var(--ae-muted);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -329,9 +368,8 @@
 }
 
 .mv-meta {
-  font-size: 0.74rem;
-  color: var(--light-grey);
-  opacity: 0.9;
+  font-size: 0.76rem;
+  color: var(--ae-muted);
 }
 
 .mv-empty {
@@ -403,7 +441,7 @@
 }
 
 .mv-detail-meta dt {
-  color: var(--light-grey);
+  color: var(--ae-muted);
 }
 
 .mv-detail-meta dd {

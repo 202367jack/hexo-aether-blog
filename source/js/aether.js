@@ -14,6 +14,57 @@
   var segments = path.split('/').filter(Boolean)
   var section = segments[0] || 'home'
 
+  /* ---------- 导航栏：日夜模式切换按钮 ---------- */
+
+  var isDark = function () {
+    return document.documentElement.getAttribute('data-theme') === 'dark'
+  }
+
+  var paintToggle = function (btn) {
+    var icon = btn.querySelector('i')
+    if (!icon) return
+    icon.className = isDark() ? 'fas fa-sun' : 'fas fa-moon'
+    btn.setAttribute('title', isDark() ? '切换到日间模式' : '切换到夜间模式')
+  }
+
+  var menus = document.getElementById('menus')
+  if (menus) {
+    var toggle = document.createElement('span')
+    toggle.id = 'ae-darkmode'
+    toggle.setAttribute('role', 'button')
+    toggle.setAttribute('tabindex', '0')
+    toggle.innerHTML = '<i class="fas fa-moon"></i>'
+
+    var flip = function () {
+      var native = document.getElementById('darkmode')
+      if (!native) return
+      native.click()
+      window.setTimeout(function () {
+        paintToggle(toggle)
+      }, 60)
+    }
+
+    toggle.addEventListener('click', flip)
+    toggle.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault()
+        flip()
+      }
+    })
+
+    menus.insertBefore(toggle, menus.firstChild)
+    paintToggle(toggle)
+
+    if (window.MutationObserver) {
+      new MutationObserver(function () {
+        paintToggle(toggle)
+      }).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      })
+    }
+  }
+
   /* ---------- 给 body 打上板块 class，方便 CSS 精确控制 ---------- */
 
   document.body.classList.add('sec-' + section)
