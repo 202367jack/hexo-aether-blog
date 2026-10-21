@@ -19,25 +19,34 @@ npm run server       # 预览
 npm run build        # 只生成到 public/
 ```
 
-## 写文章
+## 写内容
 
-**最省事的办法：双击 `新建.bat`**，按提示选板块（随笔 / 笔记 / 影视评价）、填标题和文件名，
-它会把 Markdown 文件和同名图片目录一起建好，你只要接着写正文。
+**不用记命令**：全鼠标版步骤在 [`写作指南.md`](写作指南.md)，
+要复制的东西在 [`模板/`](模板)。一句话版本：
 
-也可以手动建：文章在 `source/_posts/`，文件名决定网址（用英文短横线）：
+| 要写什么 | 复制什么 | 粘到哪里 |
+| --- | --- | --- |
+| 随笔 | `模板/随笔.md` | `source/_posts/`，再建同名文件夹放图 |
+| 笔记 | `模板/笔记.md` | 同上 |
+| 影视评价 | `模板/影视评价/` 整个文件夹 | `source/media/` |
+| 项目 | `模板/项目/` 整个文件夹 | `source/projects/` |
+
+文件名（文件夹名）决定网址，用英文小写 + 数字 + 短横线。
+
+文章在 `source/_posts/`，同名目录放这篇文章的图片：
 
 ```
 source/_posts/
 ├── 2026-10-20-hello-java.md
 └── 2026-10-20-hello-java/     ← 同名目录放这篇文章的图片
-    ├── 截图.png
-    └── 流程图.jpg
+    ├── screenshot.png
+    └── diagram.jpg
 ```
 
 正文里就用最普通的 Markdown 图片语法：
 
 ```markdown
-![](截图.png)
+![](screenshot.png)
 ```
 
 构建时 `tools/convert-images.js` 会把 png/jpg 压成同目录的 `.webp`（长边 1600、质量 80），
@@ -54,17 +63,9 @@ source/_posts/
 | `随笔` | 随笔（每页 8 篇分页） |
 | `笔记` | 笔记（技术文章，不分页） |
 
-## 加一部影视
+## 字段速查
 
-双击 `新建.bat` 选 **3) 影视评价**，它会建出：
-
-```
-source/media/<文件名>/
-├── index.md        ← 简介、评语、front-matter
-└── poster.jpg      ← 你自己丢进来，然后把 front-matter 里 poster 那行的 # 去掉
-```
-
-front-matter 各字段的含义：
+### 影视（`source/media/<英文短名>/index.md`）
 
 | 字段 | 作用 |
 | --- | --- |
@@ -75,13 +76,12 @@ front-matter 各字段的含义：
 | `genre` | 类型，写在方括号里，如 `[奇幻, 爱情]`（第二组筛选，一部片可以有多个） |
 | `region` | 地区，如 `中国`（第三组筛选） |
 | `year` / `status` | 年份 / 看完·在看·弃了 |
-| `poster` | 海报文件名，没海报就整行注释掉，卡片会显示标题占位 |
+| `poster` | 海报文件名，没有海报就把这行注释掉，卡片会显示片名占位 |
 
-筛选按钮是从所有影视条目的字段里自动汇总的，加新片不用改代码。
+海报就放在同目录、命名 `poster.jpg`。筛选按钮是从所有影视条目的字段里自动汇总的，
+加新片不用改代码。
 
-## 加一个项目
-
-复制一份 `source/projects/cloud-server-setup/` 改名，然后改这几个字段：
+### 项目（`source/projects/<英文短名>/index.md`）
 
 | 字段 | 作用 |
 | --- | --- |
@@ -93,12 +93,13 @@ front-matter 各字段的含义：
 
 项目列表页是 `source/projects/index.md` 里的 `{% project_cards %}` 自动生成的，不用手动加链接。
 
-
 ## 目录结构
 
 ```
 ├─ _config.yml            Hexo 主配置（url / root 带子目录前缀）
-├─ _config.butterfly.yml  主题配置（导航、暗色模式、搜索、侧栏）
+├─ _config.butterfly.yml  主题配置（导航、暗色模式、搜索、侧栏、giscus）
+├─ 写作指南.md             全鼠标版写作步骤
+├─ 模板/                  随笔 / 笔记 / 影视 / 项目模板，复制改名就能用
 ├─ source/
 │  ├─ _posts/             随笔 + 笔记
 │  ├─ projects/           项目（type: project，列表页 {% project_cards %}）
@@ -109,8 +110,7 @@ front-matter 各字段的含义：
 │  └─ img/                头像、图标（不参与 WebP 转换）
 ├─ scripts/               Hexo 插件脚本（板块分页、卡片、注入、WebP）
 ├─ tools/convert-images.js 图片压缩脚本
-├─ tools/new-post.js       新建文章向导（新建.bat 调它）
-├─ 新建.bat                双击新建随笔 / 笔记 / 影视
+├─ tools/check-links.js    站内链接自检（npm run check）
 ├─ 预览.bat               双击预览
 └─ .github/workflows/deploy.yml  push 即部署
 ```
