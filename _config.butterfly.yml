@@ -51,11 +51,11 @@ cover:
 code_blocks:
   theme: light          # 浅色配色；darker / pale night / light / ocean / false
   macStyle: true        # 仿 macOS 的红黄绿三个圆点
-  height_limit: 600     # 超过 600px 自动折叠，点「展开全文」看全部
+  height_limit: false   # 不限制高度：长代码块直接全部展开，不用点「展开全文」
   word_wrap: true       # 长行自动换行，不横向滚动
   copy: true            # 右上角一键复制
   language: true        # 显示语言名
-  shrink: true          # 默认折叠（配合 height_limit）
+  shrink: false         # 也不默认折叠，代码一次看完
   fullpage: true        # 工具栏里的全屏按钮
 
 # ---------------- Mermaid 图表 ----------------
