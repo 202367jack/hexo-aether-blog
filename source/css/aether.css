@@ -967,3 +967,16 @@
   font-size: 0.82rem;
   text-align: center;
 }
+
+/* ---------- Mermaid 图表（aether.js 把 ```mermaid 代码块换成 SVG） ---------- */
+
+.ae-mermaid {
+  margin: 18px 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.ae-mermaid svg {
+  max-width: 100%;
+  height: auto;
+}

@@ -71,6 +71,42 @@
     }
   }
 
+  /* ---------- 导航栏：随机一篇 ---------- */
+
+  var goRandom = function (event) {
+    if (event) event.preventDefault()
+    fetch(root + 'random.json', { cache: 'no-store' })
+      .then(function (res) { return res.json() })
+      .then(function (list) {
+        if (!Array.isArray(list) || !list.length) return
+        var here = path.replace(/^\/+/, '')
+        var pool = list.filter(function (item) { return item !== here })
+        if (!pool.length) pool = list
+        var pick = pool[Math.floor(Math.random() * pool.length)]
+        window.location.href = window.location.origin + root + pick
+      })
+      .catch(function () { window.location.href = root })
+  }
+
+  var randomItem = function () {
+    var wrap = document.createElement('div')
+    wrap.className = 'menus_item'
+    var link = document.createElement('a')
+    link.className = 'site-page ae-random'
+    link.href = 'javascript:;'
+    link.title = '随便翻一篇'
+    link.innerHTML = '<i class="fa-fw fas fa-dice"></i><span> 随机</span>'
+    link.addEventListener('click', goRandom)
+    wrap.appendChild(link)
+    return wrap
+  }
+
+  var headerItems = document.querySelector('#menus .menus_items')
+  if (headerItems) headerItems.appendChild(randomItem())
+
+  var sidebarItems = document.querySelector('#sidebar-menus .menus_items')
+  if (sidebarItems) sidebarItems.appendChild(randomItem())
+
   /* ---------- 给 body 打上板块 class，方便 CSS 精确控制 ---------- */
 
   document.body.classList.add('sec-' + section)
@@ -245,5 +281,70 @@
       if (img.complete) markMissing()
       else img.addEventListener('error', markMissing)
     })
+  }
+  /* ---------- Mermaid：把 ```mermaid 代码块画成图 ---------- */
+
+  var diagramBlocks = []
+  var DIAGRAM = /^\s*(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|erDiagram|journey|gantt|pie|mindmap|timeline|gitGraph|quadrantChart|xychart|block-beta|architecture-beta|C4Context)\b/
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('#article-container figure.highlight'),
+    function (figure) {
+      var codeEl = figure.querySelector('td.code pre') || figure.querySelector('pre')
+      if (!codeEl) return
+      var code = codeEl.innerText.replace(/\u00a0/g, ' ')
+      if (!DIAGRAM.test(code)) return
+      diagramBlocks.push({ el: figure, code: code })
+    }
+  )
+
+  if (diagramBlocks.length) {
+    var drawDiagrams = function () {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        theme: isDark() ? 'dark' : 'default'
+      })
+      diagramBlocks.forEach(function (item) {
+        window.mermaid.render('ae-mm-' + Math.random().toString(36).slice(2), item.code)
+          .then(function (out) {
+            var holder = document.createElement('div')
+            holder.className = 'ae-mermaid'
+            holder.dataset.code = item.code
+            holder.innerHTML = out.svg
+            item.el.parentNode.replaceChild(holder, item.el)
+            item.el = holder
+          })
+          .catch(function () {})
+      })
+    }
+
+    var loadMermaid = function () {
+      if (window.mermaid) return drawDiagrams()
+      var script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js'
+      script.onload = drawDiagrams
+      document.body.appendChild(script)
+    }
+
+    loadMermaid()
+
+    // 切换日夜模式后重画一遍，配色跟着变
+    if (window.MutationObserver) {
+      var redrawTimer
+      new MutationObserver(function () {
+        window.clearTimeout(redrawTimer)
+        redrawTimer = window.setTimeout(function () {
+          if (!window.mermaid) return
+          window.mermaid.initialize({ startOnLoad: false, securityLevel: 'loose', theme: isDark() ? 'dark' : 'default' })
+          Array.prototype.forEach.call(document.querySelectorAll('.ae-mermaid'), function (holder) {
+            if (!holder.dataset.code) return
+            window.mermaid.render('ae-mm-' + Math.random().toString(36).slice(2), holder.dataset.code)
+              .then(function (out) { holder.innerHTML = out.svg })
+              .catch(function () {})
+          })
+        }, 220)
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    }
   }
 })()

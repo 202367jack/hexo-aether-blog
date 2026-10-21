@@ -49,13 +49,32 @@ cover:
 
 # ---------------- 代码块 ----------------
 code_blocks:
-  theme: light
-  macStyle: false
-  height_limit: false
-  copy: true
-  language: true
-  shrink: false
-  fullpage: false
+  theme: light          # 浅色配色；darker / pale night / light / ocean / false
+  macStyle: true        # 仿 macOS 的红黄绿三个圆点
+  height_limit: 600     # 超过 600px 自动折叠，点「展开全文」看全部
+  word_wrap: true       # 长行自动换行，不横向滚动
+  copy: true            # 右上角一键复制
+  language: true        # 显示语言名
+  shrink: true          # 默认折叠（配合 height_limit）
+  fullpage: true        # 工具栏里的全屏按钮
+
+# ---------------- Mermaid 图表 ----------------
+# 正文里写 ```mermaid 代码块就能直接画流程图 / 时序图 / 架构图
+mermaid:
+  enable: true
+  code_write: true
+  theme:
+    light: default
+    dark: dark
+  open_in_new_tab: true
+
+# ---------------- 文章系列 ----------------
+# front-matter 里写 series: 系列名，同名的文章会归成一个系列
+series:
+  enable: true
+  orderBy: 'date'   # 按日期排（也可以 'title'）
+  order: 1          # 1 = 正序（先发的在前），-1 = 倒序
+  number: true      # 显示序号
 
 # ---------------- 首页 ----------------
 subtitle:
@@ -154,7 +173,8 @@ aside:
     format: YYYY年MM月
     limit: 8
   card_post_series:
-    enable: false
+    enable: true
+    series_title: true
   card_webinfo:
     enable: true
     post_count: true
