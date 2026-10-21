@@ -188,7 +188,7 @@ search:
 
 # ---------------- 评论：不要 ----------------
 comments:
-  use:            # 填 giscus 就开启评论，配置见下方 giscus 段
+  use: giscus
   text: false
   lazyload: false
   count: false
@@ -202,7 +202,7 @@ comments:
 giscus:
   repo: '202367jack/hexo-aether-blog'
   repo_id: 'R_kgDOVQ_IMw'
-  category_id: ''
+  category_id: 'DIC_kwDOVQ_IM84DJN_4'
   light_theme: light
   dark_theme: dark
   js: https://giscus.app/client.js
