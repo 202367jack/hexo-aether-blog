@@ -59,14 +59,14 @@ code_blocks:
   fullpage: true        # 工具栏里的全屏按钮
 
 # ---------------- Mermaid 图表 ----------------
-# 正文里写 ```mermaid 代码块就能直接画流程图 / 时序图 / 架构图
+# 正文里写 ```mermaid 代码块就能直接画流程图 / 时序图 / 架构图。
+# 渲染由 source/js/aether.js 里的自定义逻辑完成（加载 mermaid@11 再替换代码块）。
+#
+# 注意：这里的 enable 必须保持 false。
+# Butterfly 5.7.0 自带的 mermaid 模板（layout/includes/third-party/math/mermaid.pug）
+# 在子目录部署下会把 300 多行 JS 当成文本吐到每个页面底部，打开 enable 就会泄漏源码。
 mermaid:
-  enable: true
-  code_write: true
-  theme:
-    light: default
-    dark: dark
-  open_in_new_tab: true
+  enable: false
 
 # ---------------- 文章系列 ----------------
 # front-matter 里写 series: 系列名，同名的文章会归成一个系列
