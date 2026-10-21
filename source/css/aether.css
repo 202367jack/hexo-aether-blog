@@ -8,10 +8,13 @@
   --ae-radius: 14px;
   /* 次要文字：主题的 --light-grey 是浅灰背景色（日间 #eee），当文字用会看不清，这里单独定义 */
   --ae-muted: #6b6663;
+  /* 分隔线 / 边框：浅色背景用淡灰，暗色背景用淡白，两套都看得见 */
+  --ae-line: rgba(60, 60, 67, 0.16);
 }
 
 [data-theme='dark'] {
   --ae-muted: rgba(255, 255, 255, 0.72);
+  --ae-line: rgba(255, 255, 255, 0.16);
 }
 
 /* ---------- 导航栏日夜切换按钮（aether.js 注入） ---------- */
@@ -979,4 +982,31 @@
 .ae-mermaid svg {
   max-width: 100%;
   height: auto;
+}
+
+/* ---------- 代码块 / 行内代码：浅色和暗色都给出看得见的边界 ---------- */
+
+#article-container figure.highlight,
+#article-container .code-wrapper {
+  border: 1px solid var(--ae-line);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#article-container figure.highlight .highlight-tools {
+  border-bottom: 1px solid var(--ae-line);
+}
+
+#article-container figure.highlight td.gutter {
+  border-right: 1px solid var(--ae-line);
+}
+
+#article-container code:not([class*='language-']) {
+  border: 1px solid var(--ae-line);
+}
+
+[data-theme='dark'] #article-container figure.highlight,
+[data-theme='dark'] #article-container .code-wrapper {
+  box-shadow: none;
 }

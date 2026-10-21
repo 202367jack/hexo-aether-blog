@@ -127,7 +127,9 @@
       head.innerHTML = '<h1></h1><p></p>'
       head.querySelector('h1').textContent = intro[0]
       head.querySelector('p').textContent = intro[1]
-      recent.parentNode.insertBefore(head, recent)
+      // 必须塞进 #recent-posts 内部：它是 #content-inner（flex）的子项，
+      // 多一个兄弟元素会把正文和侧栏一起挤窄（侧栏标签会一个字一行）。
+      recent.insertBefore(head, recent.firstChild)
     }
   }
 
