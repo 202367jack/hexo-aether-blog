@@ -6,16 +6,13 @@ Hexo + Butterfly，静态托管在 GitHub Pages。
 - 线上地址：<https://202367jack.github.io/hexo-aether-blog/>
 - 仓库：<https://github.com/202367jack/hexo-aether-blog>
 
-## 本地预览
+## 写完怎么看效果
 
-**双击 `预览.bat`** 就行：第一次会自动装依赖，然后生成站点、起本地服务器并打开浏览器
-（<http://localhost:4000/hexo-aether-blog/>）。改文章保存后浏览器自动刷新，关掉黑窗口就停。
-
-不想用 bat 的话：
+不看本地了：**双击 `发布.bat` 推上去，1–2 分钟后看线上** <https://202367jack.github.io/hexo-aether-blog/>。
+推之前想自检的话（可选，命令行）：
 
 ```powershell
 npm install          # 第一次
-npm run server       # 预览
 npm run build        # 只生成到 public/
 ```
 
@@ -115,7 +112,7 @@ source/_posts/
 ├─ scripts/               Hexo 插件脚本（板块分页、卡片、注入、WebP、统计、现在）
 ├─ tools/convert-images.js 图片压缩脚本
 ├─ tools/check-links.js    站内链接自检（npm run check）
-├─ 预览.bat               双击预览
+├─ 发布.bat                双击提交 + 推送
 ├─ .github/workflows/deploy.yml  push 即部署
 └─ .github/workflows/snake.yml   贡献热力图贪吃蛇（每天自动更新）
 ```
