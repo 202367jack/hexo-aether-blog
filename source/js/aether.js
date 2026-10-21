@@ -52,7 +52,13 @@
       }
     })
 
-    menus.insertBefore(toggle, menus.firstChild)
+    // 放到导航栏最右边：菜单项之后、汉堡按钮之前
+    var hamburger = document.getElementById('toggle-menu')
+    if (hamburger) {
+      menus.insertBefore(toggle, hamburger)
+    } else {
+      menus.appendChild(toggle)
+    }
     paintToggle(toggle)
 
     if (window.MutationObserver) {
