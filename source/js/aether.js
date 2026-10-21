@@ -284,15 +284,25 @@
   }
   /* ---------- Mermaid：把 ```mermaid 代码块画成图 ---------- */
 
-  var diagramBlocks = []
   var DIAGRAM = /^\s*(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|erDiagram|journey|gantt|pie|mindmap|timeline|gitGraph|quadrantChart|xychart|block-beta|architecture-beta|C4Context)\b/
 
+  var MERMAID_CDNS = [
+    'https://fastly.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js',
+    'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js',
+    'https://unpkg.com/mermaid@11/dist/mermaid.min.js'
+  ]
+
+  var diagramBlocks = []
   Array.prototype.forEach.call(
-    document.querySelectorAll('#article-container figure.highlight'),
-    function (figure) {
-      var codeEl = figure.querySelector('td.code pre') || figure.querySelector('pre')
-      if (!codeEl) return
-      var code = codeEl.innerText.replace(/\u00a0/g, ' ')
+    document.querySelectorAll('#article-container figure.highlight, #article-container pre > code.mermaid'),
+    function (node) {
+      var isCode = node.tagName === 'CODE'
+      var figure = isCode ? node.closest('figure, pre') : node
+      var sourceEl = isCode
+        ? node
+        : (node.querySelector('td.code pre') || node.querySelector('pre'))
+      if (!figure || !sourceEl) return
+      var code = sourceEl.innerText.replace(/\u00a0/g, ' ')
       if (!DIAGRAM.test(code)) return
       diagramBlocks.push({ el: figure, code: code })
     }
@@ -319,15 +329,21 @@
       })
     }
 
-    var loadMermaid = function () {
-      if (window.mermaid) return drawDiagrams()
-      var script = document.createElement('script')
-      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js'
-      script.onload = drawDiagrams
-      document.body.appendChild(script)
+    var loadMermaid = function (done) {
+      if (window.mermaid) return done()
+      var index = 0
+      var next = function () {
+        if (index >= MERMAID_CDNS.length) return
+        var script = document.createElement('script')
+        script.src = MERMAID_CDNS[index++]
+        script.onload = function () { window.mermaid ? done() : next() }
+        script.onerror = next
+        document.body.appendChild(script)
+      }
+      next()
     }
 
-    loadMermaid()
+    loadMermaid(drawDiagrams)
 
     // 切换日夜模式后重画一遍，配色跟着变
     if (window.MutationObserver) {
