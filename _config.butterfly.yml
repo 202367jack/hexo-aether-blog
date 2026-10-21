@@ -18,6 +18,10 @@ menu:
   影视: /media/ || fas fa-film
   关于: /about/ || fas fa-user
   简历: /resume/ || fas fa-id-card
+  更多||fas fa-ellipsis:
+    留言板: /board/ || fas fa-comment-dots
+    友链: /friends/ || fas fa-link
+    统计: /stats/ || fas fa-chart-simple
 
 # ---------------- 社交 ----------------
 social:
@@ -227,7 +231,10 @@ share:
   use:
 
 wordcount:
-  enable: false
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
 
 math:
   use:

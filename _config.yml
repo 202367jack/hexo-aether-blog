@@ -104,6 +104,21 @@ search:
   content: true
   format: html
 
+# hexo-generator-feed：RSS 订阅（/atom.xml）
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  content: true
+  autodiscover: true
+
+# hexo-generator-sitemap：站点地图（/sitemap.xml）
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
+
 # 部署交给 GitHub Actions，这里留空
 deploy:
   type: ''

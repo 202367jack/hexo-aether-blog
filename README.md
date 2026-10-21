@@ -105,14 +105,19 @@ source/_posts/
 │  ├─ projects/           项目（type: project，列表页 {% project_cards %}）
 │  ├─ media/              影视（type: media，列表页 {% media_grid %}）
 │  ├─ about/  resume/     关于 / 简历（简历支持打印成 PDF）
+│  ├─ board/              留言板（靠 giscus 的 Discussions）
+│  ├─ friends/  stats/    友链 / 统计（数据在 _data/ 和 front-matter 里）
+│  ├─ _data/              友链名单 friends.yml、首页「现在」now.yml
+│  ├─ 404.md robots.txt   404 页（permalink 改成 /404.html）与抓取规则
 │  ├─ css/aether.css      自定义样式
-│  ├─ js/aether.js        影视筛选、简历打印等交互
+│  ├─ js/aether.js        影视筛选、日夜切换、阅读进度、分享等交互
 │  └─ img/                头像、图标（不参与 WebP 转换）
-├─ scripts/               Hexo 插件脚本（板块分页、卡片、注入、WebP）
+├─ scripts/               Hexo 插件脚本（板块分页、卡片、注入、WebP、统计、现在）
 ├─ tools/convert-images.js 图片压缩脚本
 ├─ tools/check-links.js    站内链接自检（npm run check）
 ├─ 预览.bat               双击预览
-└─ .github/workflows/deploy.yml  push 即部署
+├─ .github/workflows/deploy.yml  push 即部署
+└─ .github/workflows/snake.yml   贡献热力图贪吃蛇（每天自动更新）
 ```
 
 ## 部署

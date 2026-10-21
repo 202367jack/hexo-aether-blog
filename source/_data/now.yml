@@ -1,0 +1,12 @@
+# 首页「现在」卡片：改这里，刷新首页就变（不用管格式，冒号后随便写）
+# 想加一条就复制两行 - label / text 的写法；想删就整段删掉
+
+updated: '2026-10-21'
+
+items:
+  - label: 在写
+    text: 把博客从 Hugo 挪到 Hexo，一边搬一边补功能：留言板、统计、评论。
+  - label: 在读
+    text: Redis 设计与实现，配合项目里的缓存与分布式锁一起看。
+  - label: 在折腾
+    text: 一台 4c8g 云服务器，Docker Compose 起全套中间件，push 即发布。

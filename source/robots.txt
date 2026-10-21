@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /search.xml
+
+Sitemap: https://202367jack.github.io/hexo-aether-blog/sitemap.xml

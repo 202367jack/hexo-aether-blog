@@ -33,6 +33,16 @@ top_img: false
 - 维护一台 4c8g 云服务器：Docker Compose 管中间件，Nginx 托管这个站，push 即发布
 - 把踩过的坑写成可复现的步骤，避免第二次踩
 
+## 这一年写了什么
+
+GitHub 贡献热力图，被一条蛇吃过去（每天自动更新）：
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake.svg">
+  <img alt="GitHub 贡献热力图" src="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake.svg" loading="lazy">
+</picture>
+
 ## 联系我
 
 邮箱、GitHub、B 站、X、Facebook、Instagram 都在左侧卡片里，欢迎交流。

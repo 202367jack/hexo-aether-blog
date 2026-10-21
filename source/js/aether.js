@@ -156,4 +156,81 @@
       container.parentNode.insertBefore(toolbar, container)
     }
   }
+  /* ---------- 文章页：顶部阅读进度条 ---------- */
+
+  var pageType = window.GLOBAL_CONFIG_SITE && window.GLOBAL_CONFIG_SITE.pageType
+
+  if (pageType === 'post') {
+    var progress = document.createElement('div')
+    progress.id = 'ae-progress'
+    document.body.appendChild(progress)
+
+    var ticking = false
+    var paintProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight
+      var ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0
+      progress.style.width = (ratio * 100).toFixed(2) + '%'
+      ticking = false
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true
+        window.requestAnimationFrame(paintProgress)
+      }
+    }, { passive: true })
+    window.addEventListener('resize', paintProgress, { passive: true })
+    paintProgress()
+  }
+
+  /* ---------- 文章页：底部分享 ---------- */
+
+  if (pageType === 'post') {
+    var article = document.getElementById('article-container')
+
+    if (article) {
+      var shareUrl = window.location.href
+      var shareTitle = (document.title || '').split('|')[0].trim()
+      var row = document.createElement('div')
+      row.className = 'ae-share'
+
+      var makeLink = function (href, text, icon) {
+        var link = document.createElement('a')
+        link.className = 'ae-share-btn'
+        link.href = href
+        link.target = '_blank'
+        link.rel = 'noopener'
+        link.innerHTML = '<i class="' + icon + '"></i><span>' + text + '</span>'
+        return link
+      }
+
+      row.appendChild(makeLink(
+        'https://x.com/intent/tweet?text=' + encodeURIComponent(shareTitle) +
+          '&url=' + encodeURIComponent(shareUrl), 'X', 'fab fa-x-twitter'))
+      row.appendChild(makeLink(
+        'https://service.weibo.com/share/share.php?title=' +
+          encodeURIComponent(shareTitle + ' ' + shareUrl), '微博', 'fab fa-weibo'))
+
+      var copyBtn = document.createElement('button')
+      copyBtn.type = 'button'
+      copyBtn.className = 'ae-share-btn'
+      copyBtn.innerHTML = '<i class="fas fa-link"></i><span>复制链接</span>'
+      copyBtn.addEventListener('click', function () {
+        var label = copyBtn.querySelector('span')
+        var done = function () {
+          label.textContent = '已复制'
+          window.setTimeout(function () { label.textContent = '复制链接' }, 1600)
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(shareUrl).then(done, function () {
+            window.prompt('复制这个链接：', shareUrl)
+          })
+        } else {
+          window.prompt('复制这个链接：', shareUrl)
+        }
+      })
+      row.appendChild(copyBtn)
+
+      article.parentNode.insertBefore(row, article.nextSibling)
+    }
+  }
 })()

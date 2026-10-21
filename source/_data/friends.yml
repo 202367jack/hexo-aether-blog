@@ -1,0 +1,8 @@
+# 友链列表：加一行就多一个卡片，删一行就少一个
+# 字段：name 名字 / url 地址 / avatar 头像地址（本地图写 /img/xxx.png） / desc 一句话
+# 头像图可以直接丢进 source/img/ 目录，然后写 /img/文件名
+
+- name: Aether Weblog
+  url: https://202367jack.github.io/hexo-aether-blog/
+  avatar: /img/avatar.jpg
+  desc: 本站：随笔、笔记、项目与影视。
