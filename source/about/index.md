@@ -35,13 +35,14 @@ top_img: false
 
 ## 这一年写了什么
 
-GitHub 贡献热力图，被一条蛇吃过去（每天自动更新）：
+GitHub 贡献热力图，被一条蛇从上到下吃过去（每天凌晨自动更新，深色模式下自动换配色）：
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake.svg">
-  <img alt="GitHub 贡献热力图" src="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake.svg" loading="lazy">
-</picture>
+<div class="snake-wrap">
+  <img class="snake-light" alt="GitHub 贡献热力图" loading="lazy"
+       src="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake.svg">
+  <img class="snake-dark" alt="GitHub 贡献热力图" loading="lazy"
+       src="https://raw.githubusercontent.com/202367jack/hexo-aether-blog/output/github-contribution-grid-snake-dark.svg">
+</div>
 
 ## 联系我
 

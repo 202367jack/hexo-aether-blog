@@ -35,8 +35,11 @@ hexo.extend.filter.register('after_render:html', function (str, data) {
     '</section>'
   )
 
-  const marker = '<div class="recent-posts'
-  const at = str.indexOf(marker)
-  if (at === -1) return str
+  // 注意：必须插在 .recent-posts 里面，不能插到 #content-inner 下——
+  // 那个容器是 flex，多一个子元素会把正文和侧栏一起挤窄（标签会一个字一行）。
+  const marker = /<div class="recent-posts[^"]*"[^>]*>/
+  const found = str.match(marker)
+  if (!found) return str
+  const at = found.index + found[0].length
   return str.slice(0, at) + card + str.slice(at)
 }, 10)
