@@ -10,7 +10,7 @@
     "clean": "hexo clean",
     "images": "node tools/convert-images.js",
     "prebuild": "node tools/convert-images.js",
-    "build": "hexo generate",
+    "build": "hexo clean && hexo generate",
     "preserver": "node tools/convert-images.js",
     "server": "hexo server",
     "start": "hexo server",
