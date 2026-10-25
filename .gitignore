@@ -12,7 +12,6 @@ db.json
 # 构建时由 tools/convert-images.js 生成的 WebP（原图提交，WebP 每次构建重新生成）
 source/_posts/**/*.webp
 source/projects/**/*.webp
-source/media/**/*.webp
 
 # 系统文件
 Thumbs.db

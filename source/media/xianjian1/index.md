@@ -11,6 +11,7 @@ year: 2005
 rating: 10.0
 status: 看完
 quote: 一切开始的地方，那句「吃到老、玩到老」
+poster: poster.jpg
 ---
 
 ## 简介

@@ -11,6 +11,7 @@ year: 2004
 rating: 9.2
 status: 看完
 quote: 图的就是轻松，台词密到停不下来
+poster: poster.jpg
 ---
 
 ## 简介

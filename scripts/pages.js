@@ -9,6 +9,9 @@
  * 列表页只需要一行 {% project_cards %} / {% media_grid %}。
  */
 
+const fs = require('fs')
+const path = require('path')
+
 const esc = str => String(str == null ? '' : str)
   .replace(/&/g, '&amp;')
   .replace(/</g, '&lt;')
@@ -49,6 +52,22 @@ function childPath (page, parent) {
 
 function webp (file) {
   return String(file || '').replace(/\.(png|jpe?g)$/i, '.webp')
+}
+
+/**
+ * 海报文件到底在不在：front-matter 里只写文件名，扩展名随便（jpg/png/webp 都认）。
+ * 这样提前写好 `poster: poster.jpg` 也不会因为还没放图而挂一个破图。
+ */
+function posterName (page) {
+  const raw = page.poster
+  if (!raw || !page.source) return null
+  const dir = path.dirname(page.source)
+  const stem = path.basename(String(raw)).replace(/\.[^.]+$/, '')
+  if (!stem || !dir || dir === '.') return null
+  for (const ext of ['.jpg', '.jpeg', '.png', '.webp']) {
+    if (fs.existsSync(path.join(hexo.source_dir, dir, stem + ext))) return stem + ext
+  }
+  return null
 }
 
 /* ---------------------------------------------------------------- 项目卡片 */
@@ -123,8 +142,9 @@ function renderMediaGrid () {
     const rating = page.rating == null || page.rating === ''
       ? ''
       : `<span class="mv-score">${Number(page.rating).toFixed(1)}</span>`
-    const poster = page.poster
-      ? `<img src="${esc(webp(childPath(page, 'media').replace(/\/$/, '') + '/' + page.poster))}" alt="${esc(page.title)}" loading="lazy">`
+    const posterFile = posterName(page)
+    const poster = posterFile
+      ? `<img src="${esc(webp(childPath(page, 'media').replace(/\/$/, '') + '/' + posterFile))}" alt="${esc(page.title)}" loading="lazy">`
       : `<div class="mv-poster-empty">${esc(page.title)}</div>`
     const meta = [medium || '未分类'].concat(genres.length ? [genres.join(' · ')] : [])
       .concat(region ? [region] : [])
@@ -159,8 +179,9 @@ function mediaHeader (data) {
     ['状态', data.status || '']
   ].filter(([, v]) => v)
 
-  const poster = data.poster
-    ? `<div class="mv-detail-poster"><img src="${esc(webp(data.poster))}" alt="${esc(data.title)}"></div>`
+  const posterFile = posterName(data)
+  const poster = posterFile
+    ? `<div class="mv-detail-poster"><img src="${esc(webp(posterFile))}" alt="${esc(data.title)}"></div>`
     : ''
 
   return `<div class="mv-detail">

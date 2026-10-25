@@ -11,6 +11,7 @@ year: 2004
 rating: 8.6
 status: 看完
 quote: 古装轻喜剧的那点甜，节奏明快不拖
+poster: poster.jpg
 ---
 
 ## 简介

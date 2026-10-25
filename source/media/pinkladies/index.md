@@ -11,6 +11,7 @@ year: 2003
 rating: 8.9
 status: 看完
 quote: 四个女人的都市寓言，长大后再看全是心酸
+poster: poster.jpg
 ---
 
 ## 简介

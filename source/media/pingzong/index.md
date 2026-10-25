@@ -11,6 +11,7 @@ year: 2004
 rating: 9.2
 status: 看完
 quote: 江湖与家国之间，他把「侠」写成了克制
+poster: poster.jpg
 ---
 
 ## 简介

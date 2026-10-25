@@ -11,6 +11,7 @@ year: 2006
 rating: 9.0
 status: 看完
 quote: 一部关于「守护」的剧，看完会想去一次敦煌
+poster: poster.jpg
 ---
 
 ## 简介

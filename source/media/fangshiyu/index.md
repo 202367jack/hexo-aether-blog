@@ -11,6 +11,7 @@ year: 1999
 rating: 9.6
 status: 看完
 quote: 打得热闹，笑得痛快，暑假的味道
+poster: poster.jpg
 ---
 
 ## 简介

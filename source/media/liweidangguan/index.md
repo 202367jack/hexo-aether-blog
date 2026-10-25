@@ -11,6 +11,7 @@ year: 2001
 rating: 10.0
 status: 看完
 quote: 一个不按规矩出牌的小人物，把规矩用成了武器
+poster: poster.jpg
 ---
 
 ## 简介
