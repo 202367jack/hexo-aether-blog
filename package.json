@@ -9,12 +9,13 @@
   "scripts": {
     "clean": "hexo clean",
     "images": "node tools/convert-images.js",
-    "prebuild": "node tools/convert-images.js",
     "build": "hexo clean && hexo generate",
-    "preserver": "node tools/convert-images.js",
     "server": "hexo server",
     "start": "hexo server",
-    "check": "node tools/check-links.js"
+    "check": "node tools/check-links.js",
+    "prebuild": "node tools/rescue-public.js && node tools/convert-images.js",
+    "preserver": "node tools/rescue-public.js && node tools/convert-images.js",
+    "postbuild": "node tools/stamp-build.js"
   },
   "dependencies": {
     "hexo": "^8.1.2",
